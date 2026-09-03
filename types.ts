@@ -123,9 +123,19 @@ export function handleImageFallback(
   const img = e.currentTarget;
   const retry = parseInt(img.dataset.retryCount || '0', 10);
 
-  // Fallback to high-performance CDN placeholder so cards never look broken
+  // If a googleusercontent LH3 link failed, try Google Drive direct thumbnail
   if (retry === 0) {
     img.dataset.retryCount = '1';
+    const driveMatch = img.src.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (driveMatch && driveMatch[1]) {
+      img.src = `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w800`;
+      return;
+    }
+  }
+
+  // Fallback to high-performance CDN placeholder so cards never look broken
+  if (retry < 2) {
+    img.dataset.retryCount = '2';
     img.src = 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop';
   }
 }

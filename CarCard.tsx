@@ -105,13 +105,12 @@ export default function CarCard({
 
           {car.images && car.images.length > 0 && car.images[0] ? (
             <>
-              {/* Main Car Photo without pulsing or flickering transitions */}
-              <div className="absolute inset-0 bg-neutral-900 pointer-events-none" />
+              {/* Main Car Photo - rendered immediately without covering overlays */}
               <img
                 src={getImageUrl(car.images[currentImgIdx] || car.images[0], 600)}
                 alt={`${car.make} ${car.model}`}
                 decoding="async"
-                className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
+                className="relative z-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   handleImageFallback(e, car.images[currentImgIdx] || car.images[0]);
