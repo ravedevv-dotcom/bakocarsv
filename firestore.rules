@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Anyone can read showroom vehicles
+    match /vehicles/{vehicleId} {
+      allow read: if true;
+      allow write: if true; // Allows public webhook and admin sync client
+    }
+    
+    // Sync logs
+    match /sync_logs/{logId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
