@@ -95,10 +95,10 @@ export default function CarCard({
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border-b border-neutral-800">
           {/* Brand Watermark Overlay matching Motor Cars of Chicago style */}
           <div className="absolute top-3 right-3 z-10 pointer-events-none select-none text-right">
-            <span className="font-serif italic font-extrabold text-[13px] text-white tracking-tight drop-shadow-sm block leading-none">
+            <span className="font-serif italic font-extrabold text-[13px] text-black tracking-tight drop-shadow-sm block leading-none">
               BAKO CARS
             </span>
-            <span className="font-sans text-[7.5px] text-sky-400 font-extrabold uppercase tracking-[0.2em] block mt-0.5">
+            <span className="font-sans text-[7.5px] text-black font-extrabold uppercase tracking-[0.2em] block mt-0.5">
               ABUJA
             </span>
           </div>
