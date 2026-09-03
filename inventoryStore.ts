@@ -38,14 +38,14 @@ export function subscribeToVehicles(onUpdate: (vehicles: Car[]) => void) {
         onUpdate(merged);
       },
       (error) => {
-        console.warn('Firestore subscription fallback to local dataset:', error);
+        console.warn('Firestore subscription fallback to local dataset:', error?.message || String(error));
         onUpdate(SHOWROOM_VEHICLES);
       }
     );
 
     return unsubscribe;
-  } catch (err) {
-    console.warn('Failed to initialize Firestore listener, using local data:', err);
+  } catch (err: any) {
+    console.warn('Failed to initialize Firestore listener, using local data:', err?.message || String(err));
     onUpdate(SHOWROOM_VEHICLES);
     return () => {};
   }
@@ -55,8 +55,8 @@ export async function saveVehicle(car: Car): Promise<void> {
   try {
     const docRef = doc(db, VEHICLES_COLLECTION, car.id);
     await setDoc(docRef, car, { merge: true });
-  } catch (error) {
-    console.error('Error saving vehicle to Firestore:', error);
+  } catch (error: any) {
+    console.error('Error saving vehicle to Firestore:', error?.message || String(error));
     throw error;
   }
 }
@@ -65,8 +65,8 @@ export async function updateVehicleStatus(carId: string, status: Car['status']):
   try {
     const docRef = doc(db, VEHICLES_COLLECTION, carId);
     await updateDoc(docRef, { status });
-  } catch (error) {
-    console.error('Error updating vehicle status:', error);
+  } catch (error: any) {
+    console.error('Error updating vehicle status:', error?.message || String(error));
     throw error;
   }
 }
@@ -75,8 +75,8 @@ export async function deleteVehicle(carId: string): Promise<void> {
   try {
     const docRef = doc(db, VEHICLES_COLLECTION, carId);
     await deleteDoc(docRef);
-  } catch (error) {
-    console.error('Error deleting vehicle:', error);
+  } catch (error: any) {
+    console.error('Error deleting vehicle:', error?.message || String(error));
     throw error;
   }
 }
