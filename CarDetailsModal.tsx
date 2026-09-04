@@ -456,6 +456,10 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
                       <span className="text-neutral-400 uppercase">BODY STYLE:</span>
                       <span className="font-bold text-white uppercase">{car.bodyType || 'COUPE'}</span>
                     </div>
+                    <div className="flex justify-between items-center pt-2">
+                      <span className="text-neutral-400 uppercase">LOCATION:</span>
+                      <span className="font-bold text-emerald-400 uppercase text-right text-xs">{car.location || 'Abuja'}</span>
+                    </div>
                   </div>
                 </div>
 

@@ -7,6 +7,11 @@ service cloud.firestore {
       allow write: if true; // Allows public webhook and admin sync client
     }
     
+    // Connection health test rule
+    match /test/{docId} {
+      allow read: if true;
+    }
+    
     // Sync logs
     match /sync_logs/{logId} {
       allow read: if true;

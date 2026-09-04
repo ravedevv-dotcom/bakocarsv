@@ -32,7 +32,16 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "CAM-18-085000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2018 TOYOTA CAMRY SE main image.jpg",
+      "2018 TOYOTA CAMRY SE 1.jpg",
+      "2018 TOYOTA CAMRY SE 2.jpg",
+      "2018 TOYOTA CAMRY SE 3.jpg",
+      "2018 TOYOTA CAMRY SE 4.jpg",
+      "2018 TOYOTA CAMRY SE 5.jpg",
+      "2018 TOYOTA CAMRY SE 6.jpg",
+      "2018 TOYOTA CAMRY SE 7.jpg"
+    ]
   },
   {
     "id": "toyota-rav4-2019-abuja",
@@ -65,12 +74,21 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "RAV4-19-043000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2019 TOYOTA RAV4 main image.jpg",
+      "2019 TOYOTA RAV4 1.jpg",
+      "2019 TOYOTA RAV4 2.jpg",
+      "2019 TOYOTA RAV4 3.jpg",
+      "2019 TOYOTA RAV4 4.jpg",
+      "2019 TOYOTA RAV4 5.jpg",
+      "2019 TOYOTA RAV4 6.jpg",
+      "2019 TOYOTA RAV4 7.jpg"
+    ]
   },
   {
     "id": "mercedes-gle450-2020-abuja",
     "make": "Mercedes-Benz",
-    "model": "GLE 450 4MATIC",
+    "model": "GLE 450",
     "year": 2020,
     "price": 75999999,
     "mileage": 38000,
@@ -98,7 +116,17 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "GLE450-20-038000",
     "location": "Behind Church Gate, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2020 MERCEDES BENZ GLE450 main image.jpg",
+      "2020 MERCEDES BENZ GLE450 1.jpg",
+      "2020 MERCEDES BENZ GLE450 2.jpg",
+      "2020 MERCEDES BENZ GLE450 3.jpg",
+      "2020 MERCEDES BENZ GLE450 4.jpg",
+      "2020 MERCEDES BENZ GLE450 5.jpg",
+      "2020 MERCEDES BENZ GLE450 6.jpg",
+      "2020 MERCEDES BENZ GLE450 7.jpg",
+      "2020 MERCEDES BENZ GLE450 8.jpg"
+    ]
   },
   {
     "id": "toyota-highlander-xle-2021-abuja",
@@ -131,7 +159,17 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "HL-21-034000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2021 TOYOTA HIGHLANDER XLE  main image.jpg",
+      "2021 TOYOTA HIGHLANDER XLE  1.jpg",
+      "2021 TOYOTA HIGHLANDER XLE 2.jpg",
+      "2021 TOYOTA HIGHLANDER XLE  3.jpg",
+      "2021 TOYOTA HIGHLANDER XLE  4.jpg",
+      "2021 TOYOTA HIGHLANDER XLE  5.jpg",
+      "2021 TOYOTA HIGHLANDER XLE 6.jpg",
+      "2021 TOYOTA HIGHLANDER XLE 7.jpg",
+      "2021 TOYOTA HIGHLANDER XLE 8.jpg"
+    ]
   },
   {
     "id": "toyota-fortuner-vxr-2022-abuja",
@@ -164,12 +202,22 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "FORT-22-047000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2022 TOYOTA FORTUNER VXR main image.jpg",
+      "2022 TOYOTA FORTUNER VXR 1.jpg",
+      "2022 TOYOTA FORTUNER VXR 2.jpg",
+      "2022 TOYOTA FORTUNER VXR 3.jpg",
+      "2022 TOYOTA FORTUNER VXR 4.jpg",
+      "2022 TOYOTA FORTUNER VXR 5.jpg",
+      "2022 TOYOTA FORTUNER VXR 6.jpg",
+      "2022 TOYOTA FORTUNER VXR 7.jpg",
+      "2022 TOYOTA FORTUNER VXR 8.jpg"
+    ]
   },
   {
     "id": "toyota-tacoma-2017-abuja",
     "make": "Toyota",
-    "model": "Tacoma Double Cab",
+    "model": "Tacoma",
     "year": 2017,
     "price": 31000000,
     "mileage": 104000,
@@ -197,7 +245,17 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "TACO-17-104000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2017 TOYOTA TACOMA main image.jpg",
+      "2017 TOYOTA TACOMA 1.jpg",
+      "2017 TOYOTA TACOMA 2.jpg",
+      "2017 TOYOTA TACOMA 3.jpg",
+      "2017 TOYOTA TACOMA 4.jpg",
+      "2017 TOYOTA TACOMA 5.jpg",
+      "2017 TOYOTA TACOMA 6.jpg",
+      "2017 TOYOTA TACOMA 7.jpg",
+      "2017 TOYOTA TACOMA 8.jpg"
+    ]
   },
   {
     "id": "toyota-highlander-xle-2019-abuja",
@@ -230,7 +288,17 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "HL-19-046000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2019 TOYOTA HIGHLANDER XLE main image.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 1.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 2.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 3.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 4.jpg",
+      "2019 TOYOTA HIGHLANDER XLE  5.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 6.jpg",
+      "2019 TOYOTA HIGHLANDER XLE 7.jpg",
+      "2019 TOYOTA HIGHLANDER XLE  8.jpg"
+    ]
   },
   {
     "id": "toyota-corolla-2022-abuja",
@@ -263,7 +331,17 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "COR-22-044000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2022 TOYOTA COROLLA main image.jpg",
+      "2022 TOYOTA COROLLA 1.jpg",
+      "2022 TOYOTA COROLLA 2.jpg",
+      "2022 TOYOTA COROLLA 3.jpg",
+      "2022 TOYOTA COROLLA 4.jpg",
+      "2022 TOYOTA COROLLA 5.jpg",
+      "2022 TOYOTA COROLLA 6.jpg",
+      "2022 TOYOTA COROLLA 7.jpg",
+      "2022 TOYOTA COROLLA 8.jpg"
+    ]
   },
   {
     "id": "toyota-corolla-2020-abuja",
@@ -296,12 +374,21 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "COR-20-103000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2020 TOYOTA COROLLA main image.jpg",
+      "2020 TOYOTA COROLLA 1.jpg",
+      "2020 TOYOTA COROLLA 2.jpg",
+      "2020 TOYOTA COROLLA 3.jpg",
+      "2020 TOYOTA COROLLA 4.jpg",
+      "2020 TOYOTA COROLLA 5.jpg",
+      "2020 TOYOTA COROLLA 6.jpg",
+      "2020 TOYOTA COROLLA 7.jpg"
+    ]
   },
   {
     "id": "mercedes-gle63s-2017-abuja",
     "make": "Mercedes-Benz",
-    "model": "GLE 63 S AMG 4MATIC",
+    "model": "GLE 63S AMG",
     "year": 2017,
     "price": 69999999,
     "mileage": 104000,
@@ -329,7 +416,18 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "chassisNumber": "GLE63S-17-104000",
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
-    "images": []
+    "images": [
+      "2017 MERCEDES BENZ GLE63S main image.jpg",
+      "2017 MERCEDES BENZ GLE63S 1.jpg",
+      "2017 MERCEDES BENZ GLE63S 2.jpg",
+      "2017 MERCEDES BENZ GLE63S 3.jpg",
+      "2017 MERCEDES BENZ GLE63S 4.jpg",
+      "2017 MERCEDES BENZ GLE63S 5.jpg",
+      "2017 MERCEDES BENZ GLE63S 6.jpg",
+      "2017 MERCEDES BENZ GLE63S 7.jpg",
+      "2017 MERCEDES BENZ GLE63S 8.jpg",
+      "2017 MERCEDES BENZ GLE63S 9.jpg"
+    ]
   },
   {
     "id": "mercedes-g63-2020",
@@ -442,7 +540,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "description": "2022 Mercedes-AMG GLE 53 4MATIC+ Coupe SUV. High-performance mild-hybrid AMG powertrain with Panamericana grille, Burmester 3D sound, and panoramic roof.",
     "highlights": [
       "AMG Dynamic Select & Ride Control+",
-      "Burmester® Surround Sound",
+      "Burmester\u00ae Surround Sound",
       "Panamericana Front Grille",
       "Dual 12.3-inch MBUX Screens",
       "360 Surround View Cameras"
@@ -1610,7 +1708,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "description": "2022 Lexus RX 350 F-Sport in Ultra White with Circuit Red leather. Mark Levinson premium sound, F-Sport sport-tuned suspension, 12.3-inch touchscreen, and Heads-Up Display.",
     "highlights": [
       "F-Sport Circuit Red Leather",
-      "Mark Levinson® 15-Speaker Sound",
+      "Mark Levinson\u00ae 15-Speaker Sound",
       "12.3-inch Touchscreen with CarPlay",
       "F-Sport 20-inch Dark Graphite Wheels",
       "Paid Duty Verified"
@@ -1985,7 +2083,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "description": "2020 Honda Accord Sport 1.5T. 19-inch machine-finished alloy wheels, 8-inch Display Audio touchscreen with Apple CarPlay, and Honda Sensing suite.",
     "highlights": [
       "19-inch Sport Alloy Wheels",
-      "Honda Sensing® Safety Suite",
+      "Honda Sensing\u00ae Safety Suite",
       "Apple CarPlay & Android Auto",
       "Sport Pedals & Rear Spoiler",
       "Paid Duty Cleared"
@@ -2111,7 +2209,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "highlights": [
       "278hp 3.5L i-VTEC V6",
       "Dual Screen Dashboard",
-      "Honda LaneWatch™ Camera",
+      "Honda LaneWatch\u2122 Camera",
       "Sunroof & Memory Seats",
       "Clean Duty Cleared"
     ],
@@ -2277,7 +2375,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "description": "2024 Honda Civic Sport Sedan. Aggressive 11th-gen styling with 18-inch gloss black alloys, digital gauge cluster, wireless Apple CarPlay, and sport pedals.",
     "highlights": [
       "18-inch Gloss Black Sport Wheels",
-      "Honda Sensing® Suite",
+      "Honda Sensing\u00ae Suite",
       "Digital Gauge Display",
       "Apple CarPlay & Android Auto",
       "Virtually Brand New"
@@ -2405,7 +2503,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "highlights": [
       "5th-Gen 225hp Hybrid Synergy Drive",
       "Two-Tone Contrast Black Roof",
-      "JBL® 9-Speaker Audio System",
+      "JBL\u00ae 9-Speaker Audio System",
       "Wireless Apple CarPlay & Android Auto",
       "Custom Duty Paid"
     ],
@@ -2480,7 +2578,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "highlights": [
       "301hp 3.5L D-4S V6",
       "Nightshade Blackout Package",
-      "JBL® 14-Speaker Audio",
+      "JBL\u00ae 14-Speaker Audio",
       "Paddle Shifters & Sport Suspension",
       "Custom Duty Paid"
     ],
@@ -2573,15 +2671,15 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "location": "Behind Tsukunda House, Abuja",
     "previousOwners": 1,
     "images": [
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE main image[different one ].jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 1.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 2.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 3.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 4.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 6.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 7.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one] 8.jpg",
-      "GOOD DEAL ‼️2019 TOYOTA CAMRY XSE [different one]5.jpg"
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE main image[different one ].jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 1.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 2.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 3.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 4.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one]5.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 6.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 7.jpg",
+      "GOOD DEAL \u203c\ufe0f2019 TOYOTA CAMRY XSE [different one] 8.jpg"
     ]
   },
   {
@@ -2990,7 +3088,10 @@ export const SHOWROOM_VEHICLES: Car[] = [
       "2016 MERCEDES BENZ C450 main image.jpg",
       "2016 MERCEDES BENZ C450 2.jpg",
       "2016 MERCEDES BENZ C450 3.jpg",
-      "2016 MERCEDES BENZ C450 4.jpg"
+      "2016 MERCEDES BENZ C450 4.jpg",
+      "2016 MERCEDES BENZ C450 5.jpg",
+      "2016 MERCEDES BENZ C450 6.jpg",
+      "2016 MERCEDES BENZ C450 7.jpg"
     ]
   },
   {
@@ -3286,8 +3387,13 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2013 TOYOTA CAMRY main image.jpg",
+      "2013 TOYOTA CAMRY 1.jpg",
       "2013 TOYOTA CAMRY 2.jpg",
-      "2013 TOYOTA CAMRY 3.jpg"
+      "2013 TOYOTA CAMRY 3.jpg",
+      "2013 TOYOTA CAMRY 4.jpg",
+      "2013 TOYOTA CAMRY 5.jpg",
+      "2013 TOYOTA CAMRY 6.jpg",
+      "2013 TOYOTA CAMRY7.jpg"
     ]
   },
   {
@@ -3412,9 +3518,15 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2025 MERCEDES BENZ E350 main image.jpg",
+      "2025 MERCEDES BENZ E350 1.jpg",
       "2025 MERCEDES BENZ E350 2.jpg",
       "2025 MERCEDES BENZ E350 3.jpg",
-      "2025 MERCEDES BENZ E350 4.jpg"
+      "2025 MERCEDES BENZ E350 4.jpg",
+      "2025 MERCEDES BENZ E350 5.jpg",
+      "2025 MERCEDES BENZ E350 6.jpg",
+      "2025 MERCEDES BENZ E350 7.jpg",
+      "2025 MERCEDES BENZ E350 8.jpg",
+      "2025 MERCEDES BENZ E350 9.jpg"
     ]
   },
   {
@@ -3436,7 +3548,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "status": "In Stock",
     "featured": true,
     "isNewArrival": true,
-    "description": "2022 Mercedes-AMG G 63 Biturbo. Saddle Brown interior, only 8,000 miles, paid customs duty. ₦290,000,000 — available now behind Tsukunda House, Abuja.",
+    "description": "2022 Mercedes-AMG G 63 Biturbo. Saddle Brown interior, only 8,000 miles, paid customs duty. \u20a6290,000,000 \u2014 available now behind Tsukunda House, Abuja.",
     "highlights": [
       "Ultra-Low 8,000 Miles",
       "577hp Handcrafted AMG V8 Biturbo",
@@ -3452,10 +3564,15 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2022 MERCEDES BENZ G63 main image.jpg",
+      "2022 MERCEDES BENZ G63 1.jpg",
       "2022 MERCEDES BENZ G63 2.jpg",
       "2022 MERCEDES BENZ G63 3.jpg",
       "2022 MERCEDES BENZ G63 4.jpg",
-      "2022 MERCEDES BENZ G63 5.jpg"
+      "2022 MERCEDES BENZ G63 5.jpg",
+      "2022 MERCEDES BENZ G63 6.jpg",
+      "2022 MERCEDES BENZ G63 7.jpg",
+      "2022 MERCEDES BENZ G63 8.jpg",
+      "2022 MERCEDES BENZ G63 9.jpg"
     ]
   },
   {
@@ -3477,7 +3594,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "status": "In Stock",
     "featured": false,
     "isNewArrival": true,
-    "description": "2010 Toyota Corolla LE. Cream interior, 98,000 miles, paid customs duty. ₦9,800,000 — available now behind Tsukunda House, Abuja.",
+    "description": "2010 Toyota Corolla LE. Cream interior, 98,000 miles, paid customs duty. \u20a69,800,000 \u2014 available now behind Tsukunda House, Abuja.",
     "highlights": [
       "Under 100k Miles: 98,000 Miles",
       "Cream Comfort Interior",
@@ -3491,8 +3608,12 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2010 TOYOTA COROLLA main image.jpg",
+      "2010 TOYOTA COROLLA 1.jpg",
       "2010 TOYOTA COROLLA 2.jpg",
-      "2010 TOYOTA COROLLA 3.jpg"
+      "2010 TOYOTA COROLLA 3.jpg",
+      "2010 TOYOTA COROLLA 4.jpg",
+      "2010 TOYOTA COROLLA 5.jpg",
+      "2010 TOYOTA COROLLA 6.jpg"
     ]
   },
   {
@@ -3514,7 +3635,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "status": "In Stock",
     "featured": true,
     "isNewArrival": true,
-    "description": "2024 Changan UNI-T Flagship Futuristic Crossover. Black interior, only 10,000 miles, paid customs duty. ₦42,000,000 — available now behind Tsukunda House, Abuja.",
+    "description": "2024 Changan UNI-T Flagship Futuristic Crossover. Black interior, only 10,000 miles, paid customs duty. \u20a642,000,000 \u2014 available now behind Tsukunda House, Abuja.",
     "highlights": [
       "Futuristic Cyber-Grille & Flush Door Handles",
       "Ultra-Low 10,000 Miles",
@@ -3529,9 +3650,14 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2024 CHANGAN UNI-T main image.jpg",
+      "2024 CHANGAN UNI-T 1.jpg",
       "2024 CHANGAN UNI-T 2.jpg",
       "2024 CHANGAN UNI-T 3.jpg",
-      "2024 CHANGAN UNI-T 4.jpg"
+      "2024 CHANGAN UNI-T 4.jpg",
+      "2024 CHANGAN UNI-T 5.jpg",
+      "2024 CHANGAN UNI-T 6.jpg",
+      "2024 CHANGAN UNI-T 7.jpg",
+      "2024 CHANGAN UNI-T 8.jpg"
     ]
   },
   {
@@ -3553,7 +3679,7 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "status": "In Stock",
     "featured": true,
     "isNewArrival": true,
-    "description": "2015 Mercedes-Benz GLA 45 AMG 4MATIC. Black interior, 172,000 miles, paid customs duty. ₦35,000,000 — available now behind Tsukunda House, Abuja.",
+    "description": "2015 Mercedes-Benz GLA 45 AMG 4MATIC. Black interior, 172,000 miles, paid customs duty. \u20a635,000,000 \u2014 available now behind Tsukunda House, Abuja.",
     "highlights": [
       "Handcrafted 355hp AMG Turbo Engine",
       "AMG Performance 4MATIC AWD",
@@ -3568,9 +3694,14 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2015 MERCEDES BENZ GLA45 main image.jpg",
+      "2015 MERCEDES BENZ GLA45 1.jpg",
       "2015 MERCEDES BENZ GLA45 2.jpg",
       "2015 MERCEDES BENZ GLA45 3.jpg",
-      "2015 MERCEDES BENZ GLA45 4.jpg"
+      "2015 MERCEDES BENZ GLA45 4.jpg",
+      "n2015 MERCEDES BENZ GLA45 5.jpg",
+      "2015 MERCEDES BENZ GLA45 6.jpg",
+      "2015 MERCEDES BENZ GLA45 7.jpg",
+      "2015 MERCEDES BENZ GLA45 8.jpg"
     ]
   },
   {
@@ -3592,9 +3723,9 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "status": "In Stock",
     "featured": true,
     "isNewArrival": true,
-    "description": "GOOD DEAL ❗️❗️❗️❗️🪙 2016 Honda Civic EX-L Turbo. Black interior, 106,000 miles, paid customs duty. ₦13,900,000 — available now behind Tsukunda House, Abuja.",
+    "description": "GOOD DEAL \u2757\ufe0f\u2757\ufe0f\u2757\ufe0f\u2757\ufe0f\ud83e\ude99 2016 Honda Civic EX-L Turbo. Black interior, 106,000 miles, paid customs duty. \u20a613,900,000 \u2014 available now behind Tsukunda House, Abuja.",
     "highlights": [
-      "HOT DEAL 🪙 ₦13.9M Super Value",
+      "HOT DEAL \ud83e\ude99 \u20a613.9M Super Value",
       "1.5L Turbocharged 174hp Engine",
       "Black Leather Heated Seats",
       "Apple CarPlay & Touchscreen Navigation",
@@ -3607,9 +3738,15 @@ export const SHOWROOM_VEHICLES: Car[] = [
     "previousOwners": 1,
     "images": [
       "2016 HONDA CIVIC EXL main image.jpg",
+      "2016 HONDA CIVIC EXL 1.jpg",
       "2016 HONDA CIVIC EXL 2.jpg",
       "2016 HONDA CIVIC EXL 3.jpg",
-      "2016 HONDA CIVIC EXL 4.jpg"
+      "2016 HONDA CIVIC EXL 4.jpg",
+      "2016 HONDA CIVIC EXL 5.jpg",
+      "2016 HONDA CIVIC EXL 6.jpg",
+      "2016 HONDA CIVIC EXL 7.jpg",
+      "2016 HONDA CIVIC EXL 8.jpg",
+      "2016 HONDA CIVIC EXL 9.jpg"
     ]
   }
 ];
