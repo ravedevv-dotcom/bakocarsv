@@ -164,6 +164,84 @@ export default function App() {
     }, 120);
   };
 
+  // Smart space-insensitive, hyphen-insensitive, and token-based search matcher
+  const matchSmartVehicleSearch = (vehicle: typeof vehicles[0], rawSearch: string): boolean => {
+    const query = rawSearch.trim().toLowerCase();
+    if (!query) return true;
+
+    // Build comprehensive vehicle text profile
+    const fullText = [
+      vehicle.make,
+      vehicle.model,
+      vehicle.year,
+      vehicle.bodyType,
+      vehicle.engine,
+      vehicle.transmission,
+      vehicle.fuelType,
+      vehicle.exteriorColor,
+      vehicle.interiorColor,
+      vehicle.description,
+      ...(vehicle.highlights || []),
+      vehicle.location,
+      vehicle.vin,
+      vehicle.chassisNumber,
+      vehicle.stockNumber,
+    ].filter(Boolean).join(' ').toLowerCase();
+
+    // Compressed alphanumeric profile (all spaces, hyphens, and punctuation removed)
+    const cleanText = fullText.replace(/[^a-z0-9]/g, '');
+    const cleanQuery = query.replace(/[^a-z0-9]/g, '');
+
+    // 1. Direct compressed match (e.g., "cls550" matches "CLS 550", "cr-v" matches "CRV", "rx350" matches "RX 350")
+    if (cleanQuery.length >= 2 && cleanText.includes(cleanQuery)) {
+      return true;
+    }
+
+    // 2. Direct full substring match
+    if (fullText.includes(query)) {
+      return true;
+    }
+
+    // 3. Multi-token match: every term entered by the user matches somewhere in the vehicle profile
+    const tokens = query.split(/\s+/).filter(Boolean);
+    if (tokens.length === 0) return true;
+
+    return tokens.every((token) => {
+      // Direct token match in full text
+      if (fullText.includes(token)) return true;
+
+      // Alphanumeric stripped token match
+      const cleanToken = token.replace(/[^a-z0-9]/g, '');
+      if (cleanToken.length >= 2 && cleanText.includes(cleanToken)) return true;
+
+      // Split alphanumeric combinations like "cls550" into "cls" and "550", or "rx350" into "rx" and "350"
+      const splitAlphaNum = token.match(/^([a-z]+)(\d+)$/i);
+      if (splitAlphaNum) {
+        const alpha = splitAlphaNum[1];
+        const num = splitAlphaNum[2];
+        if (cleanText.includes(alpha) && cleanText.includes(num)) return true;
+      }
+
+      // Reverse split combinations like "2018camry" into "2018" and "camry"
+      const revSplitAlphaNum = token.match(/^(\d+)([a-z]+)$/i);
+      if (revSplitAlphaNum) {
+        const num = revSplitAlphaNum[1];
+        const alpha = revSplitAlphaNum[2];
+        if (cleanText.includes(num) && cleanText.includes(alpha)) return true;
+      }
+
+      // Automotive synonyms and colloquial abbreviations
+      if (token === 'merc' && fullText.includes('mercedes')) return true;
+      if (token === 'benz' && fullText.includes('mercedes')) return true;
+      if (token === 'bimmer' || token === 'beemer') return fullText.includes('bmw');
+      if (token === 'awd' || token === '4wd') return fullText.includes('4matic') || fullText.includes('awd') || fullText.includes('4wd');
+      if (token === 'auto') return fullText.includes('automatic');
+      if (token === 'pano') return fullText.includes('panoramic');
+
+      return false;
+    });
+  };
+
   // Core Filtering computations (Memoized for high efficiency)
   const filteredVehicles = useMemo(() => {
     return vehicles.filter((vehicle) => {
@@ -172,20 +250,7 @@ export default function App() {
 
       // 1. Search term (Matches make, model, body type, transmission, year, colors, engine, or highlights)
       if (filters.search.trim()) {
-        const query = filters.search.toLowerCase();
-        const matchesSearch =
-          vehicle.make.toLowerCase().includes(query) ||
-          vehicle.model.toLowerCase().includes(query) ||
-          vehicle.engine.toLowerCase().includes(query) ||
-          vehicle.bodyType.toLowerCase().includes(query) ||
-          vehicle.transmission.toLowerCase().includes(query) ||
-          vehicle.fuelType.toLowerCase().includes(query) ||
-          vehicle.exteriorColor.toLowerCase().includes(query) ||
-          vehicle.interiorColor.toLowerCase().includes(query) ||
-          vehicle.year.toString().includes(query) ||
-          vehicle.description.toLowerCase().includes(query) ||
-          vehicle.highlights.some((h) => h.toLowerCase().includes(query));
-        if (!matchesSearch) return false;
+        if (!matchSmartVehicleSearch(vehicle, filters.search)) return false;
       }
 
       // 2. Make

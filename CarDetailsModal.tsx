@@ -4,9 +4,10 @@
  */
 
 import React, { useState, useEffect, MouseEvent } from 'react';
-import { X, CheckCircle2, ChevronLeft, ChevronRight, Share2, MessageCircle, Phone, Maximize2, Video, Film, Camera } from 'lucide-react';
+import { X, CheckCircle2, ChevronLeft, ChevronRight, Share2, MessageCircle, Phone, Maximize2, Video, Film, Camera, Download, FolderDown, Loader2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Car, Inquiry, getImageUrl, getVideoUrl, handleImageFallback } from './types';
+import { downloadSingleImage, downloadAllVehicleImages } from './imageDownloader';
 
 interface CarDetailsModalProps {
   car: Car | null;
@@ -21,6 +22,9 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
   const [isVideoMode, setIsVideoMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isDownloadingSingle, setIsDownloadingSingle] = useState(false);
+  const [isDownloadingAll, setIsDownloadingAll] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState('');
 
   // Touch gesture state for hand swipes
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -142,6 +146,41 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
 
     setTouchStartX(null);
     setTouchStartY(null);
+  };
+
+  const handleDownloadActiveImage = async (e?: MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!car || !car.images || !car.images[activeImageIdx]) return;
+    setIsDownloadingSingle(true);
+    try {
+      const rawPath = car.images[activeImageIdx];
+      const url = getImageUrl(rawPath, 1600);
+      const cleanCarName = `${car.year}-${car.make}-${car.model}`.replace(/[^a-zA-Z0-9]+/g, '-');
+      const filename = `${cleanCarName}-photo-${activeImageIdx + 1}.jpg`;
+      await downloadSingleImage(url, filename);
+    } catch (err) {
+      console.error('Failed to download image:', err);
+    } finally {
+      setIsDownloadingSingle(false);
+    }
+  };
+
+  const handleDownloadAllImages = async (e?: MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!car || !car.images || car.images.length === 0) return;
+    setIsDownloadingAll(true);
+    setDownloadProgress('Preparing images...');
+    try {
+      await downloadAllVehicleImages(car, (_current, _total, message) => {
+        setDownloadProgress(message);
+      });
+    } catch (err) {
+      console.error('Failed to download all images:', err);
+      alert('Could not package all images. You can still download individual photos.');
+    } finally {
+      setIsDownloadingAll(false);
+      setDownloadProgress('');
+    }
   };
 
   const waInquiryUrl = `https://wa.me/message/JCOUM7I4Z2XVB1?text=${encodeURIComponent(
@@ -307,14 +346,29 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
                     )
                   ) : (
                     <>
-                      {/* Fullscreen Zoom Trigger in Top Left */}
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(true); }}
-                        className="absolute top-3 left-3 z-10 p-2 bg-black/70 hover:bg-black text-white rounded border border-white/20 transition-all backdrop-blur-sm"
-                        title="Fullscreen zoom"
-                      >
-                        <Maximize2 className="w-4 h-4" />
-                      </button>
+                      {/* Top Left Controls: Zoom and Quick Download */}
+                      <div className="absolute top-3 left-3 z-10 flex items-center space-x-1.5">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(true); }}
+                          className="p-2 bg-black/70 hover:bg-black text-white rounded border border-white/20 transition-all backdrop-blur-sm cursor-pointer"
+                          title="Fullscreen zoom"
+                        >
+                          <Maximize2 className="w-4 h-4" />
+                        </button>
+
+                        <button
+                          onClick={handleDownloadActiveImage}
+                          disabled={isDownloadingSingle}
+                          className="p-2 bg-black/70 hover:bg-black text-white rounded border border-white/20 transition-all backdrop-blur-sm cursor-pointer"
+                          title="Download this high-resolution photo"
+                        >
+                          {isDownloadingSingle ? (
+                            <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+                          ) : (
+                            <Download className="w-4 h-4 text-white hover:text-amber-400 transition-colors" />
+                          )}
+                        </button>
+                      </div>
 
                       <img
                         src={getImageUrl(car.images[activeImageIdx], 1080)}
@@ -378,6 +432,54 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
                         />
                       </button>
                     ))}
+                  </div>
+                )}
+
+                {/* Photo Counter & Quick Download Actions Bar */}
+                {!isVideoMode && car.images.length > 0 && (
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 px-1 text-xs">
+                    <span className="font-mono text-[10px] text-neutral-400 tracking-widest uppercase">
+                      PHOTO {activeImageIdx + 1} OF {car.images.length}
+                    </span>
+
+                    <div className="flex items-center space-x-2">
+                      <button
+                        type="button"
+                        onClick={handleDownloadActiveImage}
+                        disabled={isDownloadingSingle}
+                        className="px-2.5 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-white rounded flex items-center space-x-1.5 transition-colors cursor-pointer"
+                        title="Download current photo to your device"
+                      >
+                        {isDownloadingSingle ? (
+                          <Loader2 className="w-3 h-3 animate-spin text-amber-400" />
+                        ) : (
+                          <Download className="w-3 h-3 text-amber-400" />
+                        )}
+                        <span>DOWNLOAD PHOTO</span>
+                      </button>
+
+                      {car.images.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={handleDownloadAllImages}
+                          disabled={isDownloadingAll}
+                          className="px-2.5 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-emerald-500 text-white rounded flex items-center space-x-1.5 transition-colors cursor-pointer"
+                          title="Download all high-resolution photos of this vehicle as a ZIP archive"
+                        >
+                          {isDownloadingAll ? (
+                            <>
+                              <Loader2 className="w-3 h-3 animate-spin text-emerald-400" />
+                              <span className="text-emerald-400">{downloadProgress || 'PACKAGING...'}</span>
+                            </>
+                          ) : (
+                            <>
+                              <FolderDown className="w-3 h-3 text-emerald-400" />
+                              <span>DOWNLOAD ALL ({car.images.length})</span>
+                            </>
+                          )}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -507,14 +609,53 @@ export default function CarDetailsModal({ car, onClose, onSubmitInquiry }: CarDe
             onTouchStart={handleTouchStart}
             onTouchEnd={(e) => handleTouchEnd(e, true)}
           >
-            {/* Close Button */}
-            <button
-              onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
-              className="absolute top-4 right-4 p-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded transition-all cursor-pointer z-[110]"
-              id="close-lightbox-btn"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
+            {/* Top Action Controls in Lightbox */}
+            <div className="absolute top-4 right-4 flex items-center space-x-2 z-[110]">
+              <button
+                onClick={handleDownloadActiveImage}
+                disabled={isDownloadingSingle}
+                className="px-3 py-2 bg-neutral-800/90 hover:bg-neutral-700 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-neutral-700 backdrop-blur-md cursor-pointer"
+                title="Download this photo"
+              >
+                {isDownloadingSingle ? (
+                  <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+                ) : (
+                  <Download className="w-4 h-4 text-amber-400" />
+                )}
+                <span className="hidden sm:inline">DOWNLOAD PHOTO</span>
+              </button>
+
+              {car.images.length > 1 && (
+                <button
+                  onClick={handleDownloadAllImages}
+                  disabled={isDownloadingAll}
+                  className="px-3 py-2 bg-neutral-800/90 hover:bg-neutral-700 text-white rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-neutral-700 backdrop-blur-md cursor-pointer"
+                  title="Download all photos as a ZIP archive"
+                >
+                  {isDownloadingAll ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-emerald-400" />
+                      <span className="text-emerald-400">{downloadProgress || 'PACKAGING...'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <FolderDown className="w-4 h-4 text-emerald-400" />
+                      <span className="hidden sm:inline">DOWNLOAD ALL ({car.images.length})</span>
+                    </>
+                  )}
+                </button>
+              )}
+
+              {/* Close Button */}
+              <button
+                onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
+                className="p-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded transition-all cursor-pointer"
+                id="close-lightbox-btn"
+                title="Close Lightbox"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+            </div>
 
             {/* Lightbox Stage container */}
             <div className="relative max-w-6xl max-h-[85vh] flex items-center justify-center p-2" onClick={(e) => e.stopPropagation()}>

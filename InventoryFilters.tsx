@@ -17,7 +17,7 @@ interface InventoryFiltersProps {
 
 const MAX_BUDGET_CEILING = 500000000; // 500 Million Naira
 
-const QUICK_TAGS = ['Mercedes', 'Lexus', 'Toyota', 'V8', 'AMG', 'Sedan', 'SUV', 'Coupe', '2024'];
+const QUICK_TAGS = ['Mercedes', 'Lexus', 'Toyota', 'CLS 550', 'RX 350', 'V8', 'AMG', 'Sedan', 'SUV', 'Coupe'];
 
 export default function InventoryFilters({
   filters,
